@@ -5,8 +5,18 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="naver-site-verification" content="8bed905269b2a2669cd0e8dcbe54ed9af7996949" />
-        <link rel=" shortcut icon" href="actor.ico">
-<link rel="icon" href="actor.ico">
+        <link rel=" shortcut icon" href="actor.ico" />
+        <meta name="title" content="배우상 테스트" />
+        <meta
+            name="subject"
+            content="얼굴로 보는 인공지능 배우상 테스트, 나와 닮은 배우상을 찾아보세요!"
+        />
+        <meta
+            name="keywords"
+            content="배우상 테스트, 인공지능 배우상 테스트, 얼굴상, 얼굴상 테스트, 나와 닮은 배우, 배우상 찾기, 얼굴로 보는 배우상, 얼굴 배우, 배우얼굴, actorface, 강아지상, 막내딸상, 영앤리치상, 인공지능 동물상, AI 얼굴상, AI 동물상"
+        />
+        <meta name="author" content="JW_00" />
+        <link rel="icon" href="actor.ico" />
 
         <!-- Bootstrap CSS -->
         <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
@@ -69,7 +79,7 @@
             <h3 class="subsubtitle"></h3>
             <div class="toggle-gender">
                 <label class="switch">
-                    <input type="checkbox" id="gender">
+                    <input type="checkbox" id="gender" />
                     <span class="slider round"></span>
                 </label>
                 <p>남자</p>
@@ -91,7 +101,7 @@
                     accept="image/*"
                 />
                 <div class="drag-text">
-                    <h3 class='flie-upload-text'>얼굴 사진을 업로드해주세요!</h3>
+                    <h3 class="flie-upload-text">얼굴 사진을 업로드해주세요!</h3>
                 </div>
             </div>
             <div class="file-upload-content">
@@ -106,7 +116,6 @@
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_inline_share_toolbox_zmbt"></div>
 
-                
                 <div class="image-title-wrap">
                     <button type="button" onclick="removeUpload()" class="remove-image">
                         <span class="image-title">다시하기</span>
@@ -178,12 +187,9 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                     reader.onload = function (e) {
                         $('.image-upload-wrap').hide();
                         $('.spinner').show();
-                        
 
                         $('.file-upload-image').attr('src', e.target.result);
                         $('.file-upload-content').show();
-
-                        
                     };
 
                     reader.readAsDataURL(input.files[0]);
@@ -198,7 +204,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
             }
 
             function removeUpload() {
-               location.reload();
+                location.reload();
             }
             $('.image-upload-wrap').bind('dragover', function () {
                 $('.image-upload-wrap').addClass('image-dropping');
@@ -208,24 +214,24 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
             });
         </script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
         <script type="text/javascript">
             // More API functions here:
             // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
             // the link to your model provided by Teachable Machine export panel
-            const femaleURL ='https://teachablemachine.withgoogle.com/models/hgrzE63ix/' ;
+            const femaleURL = 'https://teachablemachine.withgoogle.com/models/hgrzE63ix/';
             const maleURL = 'https://teachablemachine.withgoogle.com/models/FK7cKQhAW/';
             let model, webcam, labelContainer, maxPredictions;
 
             // Load the image model and setup the webcam
             async function init() {
-                if (document.getElementById("gender").checked) {
-                URL = femaleURL;
-            } else {
-                URL = maleURL;
-            }
+                if (document.getElementById('gender').checked) {
+                    URL = femaleURL;
+                } else {
+                    URL = maleURL;
+                }
                 const modelURL = URL + 'model.json';
                 const metadataURL = URL + 'metadata.json';
 
@@ -238,9 +244,9 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 
                 labelContainer = document.getElementById('label-container');
                 for (let i = 0; i < maxPredictions; i++) {
-                    var element = document.createElement("div")
-                element.classList.add("d-flex");
-                labelContainer.appendChild(element);
+                    var element = document.createElement('div');
+                    element.classList.add('d-flex');
+                    labelContainer.appendChild(element);
                 }
             }
 
@@ -257,90 +263,119 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                 switch (prediction[0].className) {
                     case '1':
                         resultMessege = '신분상승하는 비운의 여주인공상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
-                        
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+
                         break;
                     case '2':
                         resultMessege = '먹고 떨어져 부잣집 사모님상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
-                        
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+
                         break;
                     case '3':
                         resultMessege = '꼬리 살랑살랑 여우상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '4':
                         resultMessege = '철없는 부잣집 막내딸상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '5':
                         resultMessege = '복수를 즐기는 악녀상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '6':
                         resultMessege = '똥꼬발랄 여주인공상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '7':
                         resultMessege = '언니 멋져요 걸크러쉬상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                     case '8':
                         resultMessege = '츤데레 상남자상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '9':
                         resultMessege = '얼마면 돼 영앤리치상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '10':
                         resultMessege = '계획대로 진행시켜 회장님상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '11':
                         resultMessege = '소름끼치는 싸이코패스상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.'; 
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                       
+
                     case '12':
                         resultMessege = '연애의 고수 카사노바상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '13':
                         resultMessege = '끼부리는 연하남상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
+
                     case '14':
                         resultMessege = '간 쓸개 다내주는 순정남상';
-                        resultMessege2 = '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
-                        resultMessege3 = '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
+                        resultMessege2 =
+                            '대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.';
+                        resultMessege3 =
+                            '상속자들 박신혜, 시크릿가든 하지원, 도깨비 김고은, 꽃보다 남자 구혜선';
                         break;
-                        
-                    default :
-                        resultMessege = '알수없읍'
+
+                    default:
+                        resultMessege = '알수없읍';
                         break;
                 }
                 $('.result-Messege').html(resultMessege);
@@ -353,11 +388,11 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                 var barWidth;
                 for (let i = 0; i < maxPredictions; i++) {
                     if (prediction[i].probability.toFixed(2) > 0.1) {
-                        barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + "%";
+                        barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + '%';
                     } else if (prediction[i].probability.toFixed(2) >= 0.01) {
-                        barWidth = "4%"
+                        barWidth = '4%';
                     } else {
-                        barWidth = "2%"
+                        barWidth = '2%';
                     }
                     var labelTitle;
                     var resultMessege11;
@@ -375,7 +410,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                             resultMessege11 = '막내딸상';
                             break;
                         case '5':
-                            resultMessege11= '악녀상';
+                            resultMessege11 = '악녀상';
                             break;
                         case '6':
                             resultMessege11 = '똥꼬발랄상';
@@ -404,16 +439,24 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                         case '14':
                             resultMessege11 = '순정남상';
                             break;
-                        
-
                     }
-                    var label = "<div class='animal-label d-flex align-items-center'>" + resultMessege11 + "</div>"
-                    var bar = "<div class='bar-container position-relative container'><div class='box-" + prediction[i].className + "'></div><div class='d-flex justify-content-center align-items-center bar-" + prediction[i].className + "' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
+                    var label =
+                        "<div class='animal-label d-flex align-items-center'>" +
+                        resultMessege11 +
+                        '</div>';
+                    var bar =
+                        "<div class='bar-container position-relative container'><div class='box-" +
+                        prediction[i].className +
+                        "'></div><div class='d-flex justify-content-center align-items-center bar-" +
+                        prediction[i].className +
+                        "' style='width: " +
+                        barWidth +
+                        "'><span class='d-block percent-text'>" +
+                        Math.round(prediction[i].probability.toFixed(2) * 100) +
+                        '%</span></div></div>';
                     labelContainer.childNodes[i].innerHTML = label + bar;
                 }
-        }
-            
-            
+            }
         </script>
         <script>
             var check = $("input[type='checkbox']");
