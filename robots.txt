@@ -1,2 +1,2 @@
 User-agent: *
-Allow:/
+Sitemap: https://actor-face-test.netlify.app/sitemap.xml
