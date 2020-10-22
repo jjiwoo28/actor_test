@@ -152,11 +152,12 @@ margin : 0 auto;
     line-height: 1.53;
     text-align: center;
     color: #212529;
+    margin-bottom : 0.2rem;
 }
 .subsubtitle{
         
    
-    
+    margin-bottom : 1.5rem;
     line-height: 1.53;
     text-align: center;
     color: #212529;
@@ -826,3 +827,5 @@ div{
 .animal-label {
     width: 30%;
 }
+
+h2
